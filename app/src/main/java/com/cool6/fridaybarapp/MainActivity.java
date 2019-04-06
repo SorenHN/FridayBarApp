@@ -1,13 +1,11 @@
 package com.cool6.fridaybarapp;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
-import android.widget.EditText;
-
-import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends Activity
 {
@@ -20,12 +18,12 @@ public class MainActivity extends Activity
 
     public void goToBarList(View view)
     {
-        Bar bar = new Bar("Datbar"/*, "Finlandsgade 22"*/);
+        BarList list = BarList.getInstance();
+        list.add(new Bar("Katrines Basement", "Finlandsgade 40"));
+        list.add(new Bar("Datbar", "Finlandsgade 10"));
+        list.add(new Bar("Umbi", "Uniparken"));
 
-        Intent intent = new Intent(this, BarList.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
-        intent.putExtra("bar", (Parcelable)bar);
+        Intent intent = new Intent(this, BarListActivity.class);
         this.startActivity(intent);
     }
 }

@@ -1,29 +1,29 @@
 package com.cool6.fridaybarapp;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.TextView;
+import android.app.Application;
+import com.cool6.fridaybarapp.Bar;
 
-public class BarList extends Activity
+import java.util.ArrayList;
+
+public class BarList
 {
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    private ArrayList<Bar> list = new ArrayList<Bar>();
+
+    public void add(Bar bar)
     {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bar_list);
-
-        Intent intent = getIntent();
-        Bar bar = (Bar) intent.getParcelableExtra("bar");
-
-        TextView nameView = findViewById(R.id.nameView);
-        nameView.setText(bar.name);
-
-        TextView address = findViewById(R.id.addressView);
-        address.setText("Location");
-
-        //TextView textView = findViewById(R.id.textView);
-        //textView.setText(barName);
+        list.add(bar);
     }
+
+    public Bar get(int i)
+    {
+        return list.get(i);
+    }
+
+    public void set(int i, Bar bar)
+    {
+        list.set(i, bar);
+    }
+
+    private static final BarList barList = new BarList();
+    public static BarList getInstance() {return barList;}
 }
