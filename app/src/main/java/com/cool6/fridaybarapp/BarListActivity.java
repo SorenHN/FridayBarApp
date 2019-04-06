@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BarListActivity extends Activity
 {
     private BarList list;
     private int barCounter = 0;
+    private int toastCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +30,18 @@ public class BarListActivity extends Activity
         {
             barCounter++;
             updateBarView();
+        }
+        else
+        {
+            if(toastCounter < 3)
+            {
+                Toast.makeText(this, "Concratualtions, you made it!", Toast.LENGTH_LONG).show();
+                toastCounter++;
+            }
+            else
+            {
+                Toast.makeText(this, "Go home, your drunk!", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
