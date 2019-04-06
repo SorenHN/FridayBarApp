@@ -14,15 +14,15 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void goToBarList(View view)
-    {
         BarList list = BarList.getInstance();
         list.add(new Bar("Katrines Basement", "Finlandsgade 40"));
         list.add(new Bar("Datbar", "Finlandsgade 10"));
         list.add(new Bar("Umbi", "Uniparken"));
+    }
 
+    public void goToBarList(View view)
+    {
         Intent intent = new Intent(this, BarListActivity.class);
         this.startActivity(intent);
     }

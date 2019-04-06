@@ -14,6 +14,11 @@ public class BarList
         list.add(bar);
     }
 
+    public int size()
+    {
+        return list.size();
+    }
+
     public Bar get(int i)
     {
         return list.get(i);
