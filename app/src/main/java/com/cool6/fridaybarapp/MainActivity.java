@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 
-public class MainActivity extends Activity
-{
+import java.net.HttpURLConnection;
+
+import okhttp3.OkHttpClient;
+
+public class MainActivity extends Activity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -19,6 +23,12 @@ public class MainActivity extends Activity
         list.add(new Bar("Katrines Basement", "Finlandsgade 40"));
         list.add(new Bar("Datbar", "Finlandsgade 10"));
         list.add(new Bar("Umbi", "Uniparken"));
+    }
+    private void createBinding(){
+        OkHttpClient client = new OkHttpClient();
+        String URL = "ttps://api.sandbox.mobilepay.dk/bindings-restapi/api/v1/bindings";
+
+
     }
 
     public void goToBarList(View view)
