@@ -20,4 +20,10 @@ public class MainActivity extends Activity {
 
 
     }
+
+    public void goToBarList(View view)
+    {
+        Intent intent = new Intent(this, BarListActivity.class);
+        this.startActivity(intent);
+    }
 }
